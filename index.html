@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -11,7 +10,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="project.css">
     <script src="https://kit.fontawesome.com/cf5834d24e.js" crossorigin="anonymous"></script>
-     <srcipt src="hosappoint.js"></script>
+    <script src="hosappoint.js"></script>
 </head>
 
 <body>
@@ -434,7 +433,7 @@
                         </div>
                         <p style="text-align:center;background-color:#FFFFF0;height:40px;">*UnbookedSlots</p>
                         <div style="display:flex;justify-content:flex-end;">
-                            <button style="background-color:gold;">
+                            <button style="background-color:gold;" onclick="onReschedulePage()">
                                 <div style="display:flex;justify-content:space-between;padding:5px;">
                                     <p style="font-size:20px;">Reschedule</p>
                                     <i class="fa-solid fa-caret-right"></i>
@@ -454,8 +453,8 @@
 
         </div>
         <div id="reschedulepage">
-               
-                      <div style="display:flex;">
+
+            <div style="display:flex;">
                 <div style="width:22vw" class="pr-5">
                     <h1>Patients</h1>
                     <hr class="hr-line" />
@@ -472,11 +471,11 @@
                     <hr class="hr-line" />
                     <p><a href="#">Patient gateway</a></p>
                 </div>
-                    <div>
-                             <h1>Request Rescheduling</h1>
+                <div>
+                    <h1>Request Rescheduling</h1>
                     <hr class="hr-line" />
                     <p>If you are new to XYZ hospital or are selecting a new physician,use the form below(or call toll-free 9087654321,Monday-Saturday,9:00am -4:00pm,IST) to request an appointment.Our trained Coordinators provde personalized service in English or your Native Language and will respond within a few minutes.</p>
-                      <h1 class="p-2" style="font-size:20px;background-color:gold;">Appointment Form (Fields Marked with asterik(*) are required.)</h1>
+                    <h1 class="p-2" style="font-size:20px;background-color:gold;">Appointment Form (Fields Marked with asterik(*) are required.)</h1>
                     <form id="myForm" class="p-3" style="background-color:#FFFFF0;font-weight:bold;">
                         <h1 style="font-size:20px;font-weight:bold;">Patient Information</h1>
                         <div class="mb-3 form-start">
@@ -502,7 +501,7 @@
                                 <input type="date" id="dob" placeholder="DD/MM/YYYY" />
                                 <p id="dobErrMsg" class="error-message"></p>
                             </div>
-                            
+
                         </div>
                         <div class="mb-3 form-start">
                             <div style="display:flex;flex-direction:column;width:30vw;padding-right:5px;">
@@ -512,7 +511,7 @@
                             </div>
                             <div style="display:flex;flex-direction:column;width:30vw;padding-right:5px;">
                                 <label for="pdt">Prior Date and Time <span style="color:red">*</span></label>
-                                <input type="date" id="pdt"/>
+                                <input type="date" id="pdt" />
                                 <p id="departmentcodeErrMsg" class="error-message"></p>
                             </div>
                         </div>
@@ -524,7 +523,7 @@
                             </div>
                             <div style="display:flex;flex-direction:column;width:30vw;padding-right:5px;">
                                 <label for="pdt">change appointed Date and Time <span style="color:red">*</span></label>
-                                <input type="date" id="pdt"/>
+                                <input type="date" id="pdt" />
                                 <p id="departmentcodeErrMsg" class="error-message"></p>
                             </div>
                         </div>
@@ -537,11 +536,11 @@
                         </div>
                     </form>
                 </div>
-        
-        
-    </div>
-</div>
-<div class="hospital-footer-section mt-5 pt-5 pb-5">
+
+
+            </div>
+        </div>
+        <div class="hospital-footer-section mt-5 pt-5 pb-5">
             <div class="container">
                 <div class="row">
                     <div class="col-12 col-md-6 col-lg-3">
@@ -611,7 +610,7 @@
                 </div>
             </div>
         </div>
-</div>
+    </div>
 </body>
 
 </html>
