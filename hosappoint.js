@@ -1,345 +1,159 @@
-@import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=Caveat:wght@400;700&family=Lobster&family=Monoton&family=Open+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display+SC:ital,wght@0,400;0,700;1,700&family=Playfair+Display:ital,wght@0,400;0,700;1,700&family=Roboto:ital,wght@0,400;0,700;1,400;1,700&family=Source+Sans+Pro:ital,wght@0,400;0,700;1,700&family=Work+Sans:ital,wght@0,400;0,700;1,700&display=swap');
+let availabledoctorId = document.getElementById("doctoravailability")
+let bookingscheduleId = document.getElementById("bookingschedule")
+let rescheduleId = document.getElementById("reschedule")
+let homeBodyId = document.getElementById("homeBody")
+let doctoravailpageId = document.getElementById("doctoravailpage")
+let bookingschedule = document.getElementById("bookingschedulepage")
+let requestscheduleEl = document.getElementById("requestschedule")
+let viewappointmentlistEl = document.getElementById("viewappointmentlist")
+let reschedulepageEl = document.getElementById("reschedulepage")
+bookingscheduleId.classList.remove("underliner")
+doctoravailpageId.classList.add("display")
+bookingschedule.classList.add("display")
+reschedulepageEl.classList.add("display")
 
-@media only screen and (max-width:800) {
-    .header-heading-2 {
-        font-size: 10px;
+
+function onBookingSchedule() {
+    homeBodyId.classList.add("display")
+    doctoravailpageId.classList.add("display")
+    bookingscheduleId.classList.add("underliner")
+    availabledoctorId.classList.remove("underliner")
+    bookingschedule.classList.remove("display")
+    reschedulepageEl.classList.add("display")
+}
+
+function onReschedulePage() {
+    reschedulepageEl.classList.remove("display")
+    homeBodyId.classList.add("display")
+    doctoravailpageId.classList.add("display")
+    bookingscheduleId.classList.remove("underliner")
+    rescheduleId.classList.add("underline")
+    availabledoctorId.classList.remove("underliner")
+    bookingschedule.classList.add("display")
+}
+
+function viewSchedule() {
+    requestscheduleEl.classList.add("display")
+}
+
+function onRequest() {
+    requestscheduleEl.classList.remove("display")
+}
+
+function onDoctorAvailability() {
+    homeBodyId.classList.add("display")
+    doctoravailpageId.classList.remove("display")
+    availabledoctorId.classList.add("underliner")
+    bookingscheduleId.classList.remove("underliner")
+    bookingschedule.classList.add("display")
+    reschedulepageEl.classList.remove("display")
+}
+
+function Home() {
+    homeBodyId.classList.remove("display")
+    doctoravailpageId.classList.add("display")
+    bookingschedule.classList.add("display")
+    availabledoctorId.classList.remove("underliner")
+    bookingscheduleId.classList.remove("underliner")
+}
+let firstnameEl = document.getElementById("firstname");
+let firstnameErrMsgEl = document.getElementById("firstnameErrMsg");
+let lastnameEl = document.getElementById("lastname");
+let lastnameErrMsgEl = document.getElementById("lastnameErrMsg");
+let phonenumberEl = document.getElementById("phonenumber");
+let phonenumberErrMsgEl = document.getElementById("phonenumberErrMsg");
+let emailEl = document.getElementById("email");
+let emailErrMsgEl = document.getElementById("emailErrMsg");
+let dobEl = document.getElementById("dob");
+let dobErrMsgEl = document.getElementById("dobErrMsg");
+let departmentcodeEl = document.getElementById("departmentcode");
+let departmentcodeErrMsgEl = document.getElementById("departmentcodeErrMsg");
+let myFormEl = document.getElementById("myForm");
+let checkBoxEl = document.getElementById("checkbox")
+
+let formData = {
+    firstname: "",
+    lastname: "",
+    phonenumber: "",
+    email: "",
+    dob: "",
+    departmentcode: "",
+};
+
+firstnameEl.addEventListener("change", function(event) {
+    if (event.target.value === "") {
+        firstnameErrMsgEl.textContent = "Required*";
+    } else {
+        firstnameErrMsgEl.textContent = "";
+    }
+
+    formData.firstname = event.target.value;
+});
+
+lastnameEl.addEventListener("change", function(event) {
+    if (event.target.value === "") {
+        lastnameErrMsgEl.textContent = "Required*";
+    } else {
+        lastnameErrMsgEl.textContent = "";
+    }
+
+    formData.lastname = event.target.value;
+});
+phonenumberEl.addEventListener("change", function(event) {
+    if (event.target.value === "") {
+        phonenumberErrMsgEl.textContent = "Required*";
+    } else {
+        phonenumberErrMsgEl.textContent = "";
+    }
+    formData.phonenumber = event.target.value;
+});
+dobEl.addEventListener("change", function(event) {
+    if (event.target.value === "") {
+        dobErrMsgEl.textContent = "Required*";
+    } else {
+        dobErrMsgEl.textContent = "";
+    }
+    formData.dob = event.target.value;
+});
+departmentcodeEl.addEventListener("change", function(event) {
+    if (event.target.value === "") {
+        departmntcodeErrMsgEl.textContent = "Required*";
+    } else {
+        departmentcodeErrMsgEl.textContent = "";
+    }
+
+    formData.departmentcode = event.target.value;
+});
+emailEl.addEventListener("change", function(event) {
+    formData.email = event.target.value;
+})
+
+function validateFormData(formData) {
+    let {
+        firstname,
+        lastname,
+        phonenumber,
+        dob,
+        departmentcode
+    } = formData;
+    if (firstname === "") {
+        firstnameErrMsgEl.textContent = "Required*";
+    }
+    if (lastname === "") {
+        lastnameErrMsgEl.textContent = "Required*";
+    }
+    if (phonenumber === "") {
+        phonenumberErrMsgEl.textContent = "Required*";
+    }
+    if (dob === "") {
+        dobErrMsgEl.textContent = "Required*"
+    }
+    if (departmentcode === "") {
+        departmentcodeEl.textContent = "Required*"
     }
 }
-
-.home-header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color: #FEFBEA;
-    border-radius: 5px;
-    padding: 15px;
-    align-items: center;
-}
-
-.header-heading {
-    font-size: 20px;
-}
-
-.home-header-2 {
-    display: flex;
-    flex-direction: row;
-
-    justify-content: space-around;
-
-    padding-left: 15px;
-    background-color: darkblue;
-    color: white;
-}
-
-.header-heading-2 {
-    font-size: 25px;
-}
-
-.form-button {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.home-body {
-    background-color: white;
-    width: 100vw;
-    height: auto;
-}
-
-.form-control {
-    max-width: 100px;
-    font-size: 17px;
-    font-weight: bold;
-}
-
-.home-body-backimage {
-    background-image: url("https://d2j02ha532z66v.cloudfront.net/wp-content/uploads/2018/08/Laboratory-testing.jpg");
-    background-size: 100% 60%;
-    background-repeat: no-repeat;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-}
-
-.home-body-card {
-    width: 60vw;
-    padding: 10px;
-    background-color: #FFFFF0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 10vh;
-}
-
-.doctoravail-body-card {
-    width: 90vw;
-    padding: 10px;
-    background-color: #FFFFF0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 10vh;
-}
-
-.subheading-card {
-    font-size: 16px;
-    padding: 10px;
-}
-
-.icon2 {
-    color: white;
-    background-color: white;
-}
-
-.icon {
-    color: #5a7184;
-    font-size: 18px;
-}
-
-.subelement {
-    display: flex;
-    justify-content: space-between;
-    background-color: darkblue;
-    color: white;
-    align-items: center;
-    margin: 5px;
-}
-
-.image-container {
-    display: flex;
-}
-
-.form-start {
-    display: flex;
-    justify-content: space-between;
-}
-
-.error-message {
-    color: #dc3545;
-    font-family: "Roboto";
-    font-size: 14px;
-}
-
-.hospital-footer-section-address {
-    font-family: "Roboto";
-    font-size: 16px;
-    font-weight: 400;
-}
-
-.hospital-logo-section-heading {
-    font-size: 18px;
-}
-
-.home-card-heading {
-    font-size: 18px;
-    padding: 5px;
-}
-
-.hospital-footer-section {
-    background-color: lightgreen;
-}
-
-.hospital-logo {
-    width: 163px;
-    height: 120px;
-}
-
-.cards {
-    display: flex;
-}
-
-.card-1 {
-    background-color: white;
-    padding: 10px;
-    margin: 5px;
-    text-align: left;
-    width: 230px;
-}
-
-.align-para-card2 {
-    color: darkblue;
-}
-
-.card-2 {
-    background-color: white;
-    padding: 10px;
-    margin: 5px;
-    text-align: left;
-    width: 230px;
-}
-
-.card3-image {
-    width: 150px;
-}
-
-.card-3 {
-    background-color: white;
-    padding: 10px;
-    margin: 5px;
-    text-align: left;
-    width: 230px;
-}
-
-.blue {
-    color: blue;
-}
-
-.logo-container {
-    display: flex;
-}
-
-.dab {
-    background-image: url("https://res.cloudinary.com/dmnwhjps3/image/upload/v1694802378/doctor_availabilty_byn4pz.jpg");
-    background-size: 100% 60%;
-    background-repeat: no-repeat;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-}
-
-.button-specifications {
-    width: 25vw;
-    background-color: darkblue;
-    justify-self: bottom;
-}
-
-.hospital-footer-section-icon-container {
-    width: 45px;
-    height: 30px;
-    border-radius: 50px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    background-color: #152c3e;
-    padding-right: 5px;
-    padding-left: 9.4px;
-    margin-right: 8px;
-    margin-bottom: 8px;
-}
-
-.hospital-footer-section-heading {
-    text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-decoration-color: green;
-    font-family: "Roboto";
-    font-size: 18px;
-    font-weight: 700;
-}
-
-.hospital-footer-section-list {
-    list-style-type: none;
-    padding-left: 0;
-}
-
-.hospital-footer-section-list-item {
-    font-family: "Roboto";
-    font-size: 16px;
-    font-weight: 400;
-    margin-bottom: 5px;
-}
-
-.list-type {
-    padding-right: 15px;
-    padding-left: 15px;
-    padding-top: 5px;
-    font-size: 18px;
-    padding-bottom: 5px;
-    border-style: solid;
-    border-color: white;
-    border-width: 5px;
-    margin: 30px;
-}
-
-.body-header {
-    font-size: 20px;
-}
-
-.hr-line {
-    background-color: #5a7184;
-
-    height: 2px;
-}
-
-.hospital-footer-section-copyright {
-    color: #959ead;
-    font-family: "Roboto";
-    font-size: 16px;
-    font-weight: 400;
-    margin-bottom: 5px;
-}
-
-.sortBy {
-    background-color: white;
-    padding: 5px;
-    align-self: flex-start;
-    width: 200px;
-}
-
-.labelText {
-    font-size: 10px;
-}
-
-.underliner {
-    text-decoration: underline;
-    text-decoration-color: gold;
-    text-decoration-thickness: 5px;
-}
-
-.doc-appoint-heading {
-    font-size: 20px;
-}
-
-.heading {
-    color: #3e4c59;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.search-input {
-    height: 50px;
-}
-
-.doctor-logo {
-    width: 70px;
-    height: 70px;
-}
-
-.result-doctors {
-    margin-top: 18px;
-    display: flex;
-    height: 70vh;
-    overflow: auto;
-    margin-left: 10px;
-}
-
-.doctor-card {
-    background-color: white;
-    border-radius: 24px;
-    margin-top: 15px;
-
-    margin-bottom: 15px;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    width: 25vw;
-    height: 30vh;
-    justify-content: center;
-    align-items: center;
-}
-
-.doctor-name {
-    color: #183b56;
-    font-family: "Roboto";
-    font-size: 22px;
-    font-weight: bold;
-    margin-bottom: 8px;
-}
-
-.display {
-    display: none;
-}
-
-.doctor-specilization {
-    font-family: "Roboto";
-    font-size: 14px;
-    font-weight: 300;
-}
+myFormEl.addEventListener("submit", function(event) {
+    event.preventDefault();
+    validateFormData(formData);
+});
+console.log(formData)
